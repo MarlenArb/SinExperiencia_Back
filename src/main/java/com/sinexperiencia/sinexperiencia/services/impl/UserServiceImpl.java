@@ -23,6 +23,7 @@ import com.sinexperiencia.sinexperiencia.services.UserService;
 public class UserServiceImpl implements UserService {
 	
 	private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+	private List<UserDto> usersDtos = new ArrayList<>();
 
 	@Autowired
 	private UserRepository userRepository;
@@ -38,15 +39,15 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	EntityToDto etd;
 
-	//@Autowired TODO: Aqui3
-	//DtoToEntity dte;
+	@Autowired
+	DtoToEntity dte;
 
 	// addUser: Añade un nuevo usuario a la BBDD
 	@Override
 	@Transactional
 	public void addUser(UserDto user) {
 
-		//UserEntity u = dte.getUser(user); TODO:AQui
+		UserEntity u = dte.getUser(user);
 
 /*		System.out.println(user.getRol().getName().toString());
 
@@ -58,7 +59,7 @@ public class UserServiceImpl implements UserService {
 		r.getUsers().add(u);
 
 */
-		//userRepository.save(u); TODO:Aqui
+		userRepository.save(u);
 
 	}
 
@@ -143,6 +144,14 @@ public class UserServiceImpl implements UserService {
 			logger.warn(DataErrorMessages.USER_NO_CONTENT);
 			throw new UserNoContentException(DataErrorMessages.USER_NO_CONTENT);
 		}));
+	}
+
+	//Carga inicial de usuarios
+	@Override
+	public void loadUsers(List<UserDto> users) {
+		for (UserDto userDto : users) {
+			userRepository.save(dte.getUser(userDto));
+		}
 	}
 
 

@@ -11,6 +11,7 @@ import com.sinexperiencia.sinexperiencia.dtos.UserDto;
 public interface UserService {
 
 	public UserDto getUser(Long id);
+	public void loadUsers(List<UserDto> users);
 	public UserDto getUserByUserName(String userName);
 	public void addUser(UserDto user);
 	public void deleteUser(Long id);

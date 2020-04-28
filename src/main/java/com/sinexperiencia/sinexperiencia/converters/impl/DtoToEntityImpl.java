@@ -2,11 +2,13 @@ package com.sinexperiencia.sinexperiencia.converters.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.sinexperiencia.sinexperiencia.converters.DtoToEntity;
 import com.sinexperiencia.sinexperiencia.dtos.UserDto;
 import com.sinexperiencia.sinexperiencia.entities.UserEntity;
 
+@Service
 public class DtoToEntityImpl implements DtoToEntity {
 	
 	@Autowired
