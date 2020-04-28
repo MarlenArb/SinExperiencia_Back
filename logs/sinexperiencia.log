@@ -1081,3 +1081,5 @@ java.sql.SQLSyntaxErrorException: ORA-02289: sequence does not exist
 2020-04-28 19:09:10.158  INFO 28692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (http) with context path ''
 2020-04-28 19:09:10.160  INFO 28692 --- [main] c.s.s.SinexperienciaApplication          : Started SinexperienciaApplication in 7.07 seconds (JVM running for 12.133)
 2020-04-28 19:09:24.253  INFO 28692 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-28 19:09:24.254  INFO 28692 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-28 19:09:24.266  INFO 28692 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms

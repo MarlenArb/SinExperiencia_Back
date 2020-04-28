@@ -1,4 +1,4 @@
-package com.sinexperiencia.sinexperiencia.security;
+package com.formacion.proyectocedei_26P_grupoc.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,24 +10,25 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.formacion.proyectocedei_26P_grupoc.services.impl.LoginServiceImpl;
 
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//	@Autowired
-//	private LoginServiceImpl loginService;
+	@Autowired
+	private LoginServiceImpl loginService;
 
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
-//	@Override
-//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.userDetailsService(loginService).passwordEncoder(passwordEncoder());
-//	}   TODO: loginService
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(loginService).passwordEncoder(passwordEncoder());
+	}
 
 	@Bean("authenticationManager")
 	@Override
