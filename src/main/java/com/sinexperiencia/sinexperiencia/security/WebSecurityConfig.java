@@ -1,4 +1,4 @@
-package com.formacion.proyectocedei_26P_grupoc.security;
+package com.sinexperiencia.sinexperiencia.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.formacion.proyectocedei_26P_grupoc.services.impl.LoginServiceImpl;
+import com.sinexperiencia.sinexperiencia.services.impl.LoginServiceImpl;
 
 @EnableGlobalMethodSecurity(securedEnabled = true)
 @Configuration

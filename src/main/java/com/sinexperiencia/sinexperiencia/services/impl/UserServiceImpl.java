@@ -13,9 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sinexperiencia.sinexperiencia.converters.DtoToEntity;
 import com.sinexperiencia.sinexperiencia.converters.EntityToDto;
 import com.sinexperiencia.sinexperiencia.dtos.UserDto;
+import com.sinexperiencia.sinexperiencia.entities.RolEntity;
 import com.sinexperiencia.sinexperiencia.entities.UserEntity;
 import com.sinexperiencia.sinexperiencia.exceptions.UserNoContentException;
 import com.sinexperiencia.sinexperiencia.exceptions.messages.DataErrorMessages;
+import com.sinexperiencia.sinexperiencia.repositories.RolRepository;
 import com.sinexperiencia.sinexperiencia.repositories.UserRepository;
 import com.sinexperiencia.sinexperiencia.services.UserService;
 
@@ -28,10 +30,10 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
 
-	/*
+	
 	@Autowired
 	private RolRepository rolRepository;
-	*/
+	
 
 	@Autowired
 	BCryptPasswordEncoder encoder;
@@ -49,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
 		UserEntity u = dte.getUser(user);
 
-/*		System.out.println(user.getRol().getName().toString());
+		System.out.println(user.getRol().getName().toString());
 
 		RolEntity r = rolRepository.findByName(user.getRol().getName().toString()).orElseThrow(() -> {
 			logger.warn(DataErrorMessages.ROLE_NO_CONTENT);
@@ -58,7 +60,7 @@ public class UserServiceImpl implements UserService {
 
 		r.getUsers().add(u);
 
-*/
+
 		userRepository.save(u);
 
 	}
@@ -80,15 +82,15 @@ public class UserServiceImpl implements UserService {
 		u.setCountry(user.getCountry());
 		u.setMail(user.getMail());
 
-//		for (RolEntity r : u.getRoles())
-//			r.getUsers().remove(u);
-//
-//		RolEntity r = rolRepository.findByName(user.getRol().getName().toString()).orElseThrow(() -> {
-//			logger.warn(DataErrorMessages.ROLE_NO_CONTENT);
-//			throw new UserNoContentException(DataErrorMessages.ROLE_NO_CONTENT);
-//		});
-//
-//		r.getUsers().add(u); TODO: Roles
+		for (RolEntity r : u.getRoles())
+			r.getUsers().remove(u);
+
+		RolEntity r = rolRepository.findByName(user.getRol().getName().toString()).orElseThrow(() -> {
+			logger.warn(DataErrorMessages.ROLE_NO_CONTENT);
+			throw new UserNoContentException(DataErrorMessages.ROLE_NO_CONTENT);
+		});
+
+		r.getUsers().add(u);
 
 		userRepository.save(u);
 
@@ -106,8 +108,8 @@ public class UserServiceImpl implements UserService {
 			throw new UserNoContentException(DataErrorMessages.USER_NO_CONTENT);
 		});
 
-//		for (RolEntity r : u.getRoles())
-//			r.getUsers().remove(u);  TODO:Roles
+		for (RolEntity r : u.getRoles())
+			r.getUsers().remove(u);
 
 		userRepository.delete(u);
 

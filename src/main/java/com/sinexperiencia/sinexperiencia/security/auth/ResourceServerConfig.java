@@ -1,4 +1,4 @@
-package com.formacion.proyectocedei_26P_grupoc.security.auth;
+package com.sinexperiencia.sinexperiencia.security.auth;
 
 import java.util.Arrays;
 
@@ -25,7 +25,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		
 		http.authorizeRequests()
 			.antMatchers(HttpMethod.GET, "/imgs/**", "/character/uploads/**").permitAll()
-			//.antMatchers(HttpMethod.POST, "/user/**").permitAll()
+			.antMatchers(HttpMethod.POST,"/user/**").permitAll() //TODO: Comentar para carga inicial usuarios
+			.antMatchers(HttpMethod.GET,"/user/**").permitAll() //here too
 			.anyRequest().authenticated()
 			.and().cors().configurationSource(corsConfigurationSource());
 		

@@ -1,6 +1,7 @@
 package com.sinexperiencia.sinexperiencia.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sinexperiencia.sinexperiencia.dtos.RolDto;
 
 import lombok.Data;
 
@@ -25,5 +26,7 @@ public class UserDto {
 	private String experience;
 	
 	private String country;
+	
+	private RolDto rol;
 	
 }

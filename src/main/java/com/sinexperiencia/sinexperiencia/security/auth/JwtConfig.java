@@ -1,4 +1,4 @@
-package com.formacion.proyectocedei_26P_grupoc.security.auth;
+package com.sinexperiencia.sinexperiencia.security.auth;
 
 public class JwtConfig {
 	

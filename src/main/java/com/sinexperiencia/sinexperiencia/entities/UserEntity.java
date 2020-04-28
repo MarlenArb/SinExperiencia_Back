@@ -1,5 +1,6 @@
 package com.sinexperiencia.sinexperiencia.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -7,9 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sinexperiencia.sinexperiencia.entities.RolEntity;
 
 import lombok.Data;
 
@@ -49,4 +52,6 @@ public class UserEntity {
 	@Column(name = "PAIS")
 	private String country;
 
+	@ManyToMany(mappedBy = "users")
+	private List<RolEntity> roles = new ArrayList<RolEntity>();
 }
