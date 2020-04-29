@@ -23,7 +23,7 @@ import lombok.Data;
 public class RolEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "ID_ROL")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")
 	private Long idRol;
 	

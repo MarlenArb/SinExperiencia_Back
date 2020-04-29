@@ -81,6 +81,9 @@ public class UserServiceImpl implements UserService {
 		u.setPassword(encoder.encode(user.getPassword()));
 		u.setCountry(user.getCountry());
 		u.setMail(user.getMail());
+		u.setLastname(user.getLastname());
+		u.setExperience(user.getExperience());
+		u.setOccupation(user.getOccupation());
 
 		for (RolEntity r : u.getRoles())
 			r.getUsers().remove(u);

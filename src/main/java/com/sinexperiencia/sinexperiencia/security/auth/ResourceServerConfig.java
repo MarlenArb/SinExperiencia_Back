@@ -26,7 +26,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		http.authorizeRequests()
 			.antMatchers(HttpMethod.GET, "/imgs/**", "/character/uploads/**").permitAll()
 			.antMatchers(HttpMethod.POST,"/user/**").permitAll() //TODO: Comentar para carga inicial usuarios
-			.antMatchers(HttpMethod.GET,"/user/**").permitAll() //here too
+			.antMatchers(HttpMethod.GET,"/user/**").permitAll()
+			.antMatchers(HttpMethod.PUT,"/user/**").permitAll()
+			.antMatchers(HttpMethod.DELETE,"/user/**").permitAll()//here too
 			.anyRequest().authenticated()
 			.and().cors().configurationSource(corsConfigurationSource());
 		

@@ -28,6 +28,9 @@ public class EntityToDtoImpl implements EntityToDto {
 		userDto.setPassword(encoder.encode(userEntity.getPassword()));
 		userDto.setMail(userEntity.getMail());
 		userDto.setBirthdate(userEntity.getBirthdate());
+		userDto.setExperience(userEntity.getExperience());
+		userDto.setLastname(userEntity.getLastname());
+		userDto.setOccupation(userEntity.getOccupation());
 		userDto.setCountry(userEntity.getCountry());
 		userDto.setRol(getRol(userEntity.getRoles()).get(0));
 		return userDto;

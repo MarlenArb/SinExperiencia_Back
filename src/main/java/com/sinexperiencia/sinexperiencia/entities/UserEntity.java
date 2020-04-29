@@ -23,7 +23,7 @@ import lombok.Data;
 public class UserEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "ID_GAME_USER")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_SEQUENCENAME")
 	@Column(name = "ID")
 	private Long idUser;
 
