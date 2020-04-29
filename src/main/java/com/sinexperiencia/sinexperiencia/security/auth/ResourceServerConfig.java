@@ -29,6 +29,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 			.antMatchers(HttpMethod.GET,"/user/**").permitAll()
 			.antMatchers(HttpMethod.PUT,"/user/**").permitAll()
 			.antMatchers(HttpMethod.DELETE,"/user/**").permitAll()//here too
+			.antMatchers(HttpMethod.POST,"/roles/**").permitAll() //TODO: Comentar para carga inicial usuarios
+			.antMatchers(HttpMethod.GET,"/roles/**").permitAll()
+			.antMatchers(HttpMethod.PUT,"/roles/**").permitAll()
+			.antMatchers(HttpMethod.DELETE,"/roles/**").permitAll()//here too /oauth/token
+			.antMatchers(HttpMethod.POST,"/oauth/token/**").permitAll()
 			.anyRequest().authenticated()
 			.and().cors().configurationSource(corsConfigurationSource());
 		
