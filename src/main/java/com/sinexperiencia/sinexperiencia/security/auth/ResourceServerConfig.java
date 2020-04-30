@@ -23,6 +23,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		
+		/*
 		http.authorizeRequests()
 			.antMatchers(HttpMethod.GET, "/imgs/**", "/character/uploads/**").permitAll()
 			.antMatchers(HttpMethod.POST,"/user/**").permitAll() //TODO: Comentar para carga inicial usuarios
@@ -35,7 +36,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 			.antMatchers(HttpMethod.DELETE,"/roles/**").permitAll()//here too /oauth/token
 			.antMatchers(HttpMethod.POST,"/oauth/token/**").permitAll()
 			.anyRequest().authenticated()
-			.and().cors().configurationSource(corsConfigurationSource());
+			.and().cors().configurationSource(corsConfigurationSource());*/
+		
+		http.csrf().disable().httpBasic().and().authorizeRequests().anyRequest().permitAll(); 
 		
 	}
 	

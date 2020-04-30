@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.sinexperiencia.sinexperiencia.dtos.JobDto;
 import com.sinexperiencia.sinexperiencia.dtos.RolDto;
+import com.sinexperiencia.sinexperiencia.entities.JobEntity;
 import com.sinexperiencia.sinexperiencia.entities.RolEntity;
 import com.sinexperiencia.sinexperiencia.enums.Enums;
 import com.sinexperiencia.sinexperiencia.converters.EntityToDto;
@@ -49,5 +51,16 @@ public class EntityToDtoImpl implements EntityToDto {
 
 		return lista;
 
+	}
+
+	@Override
+	public JobDto getJob(JobEntity jobEntity) {
+		JobDto jobDto = new JobDto();
+		jobDto.setOccupation(Enums.occupations.valueOf(jobEntity.getOccupation()));
+		jobDto.setCompany(jobEntity.getCompany());
+		jobDto.setDescription(jobEntity.getDescription());
+		jobDto.setRequirements(jobEntity.getRequirements());
+
+		return jobDto;
 	}
 }
