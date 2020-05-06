@@ -12,7 +12,7 @@ public class JobDto {
 	private Long idJob;
 	private  Enums.occupations occupation;
 	private String description;
-	private List<String> requirements;
+	//private List<String> requirements;
 	private String company;
 	//TODO: Añadir fecha creacion automatica (mirar videos)
 	

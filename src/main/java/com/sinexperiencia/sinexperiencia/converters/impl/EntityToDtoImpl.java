@@ -56,10 +56,11 @@ public class EntityToDtoImpl implements EntityToDto {
 	@Override
 	public JobDto getJob(JobEntity jobEntity) {
 		JobDto jobDto = new JobDto();
+		jobDto.setIdJob(jobEntity.getIdJob());
 		jobDto.setOccupation(Enums.occupations.valueOf(jobEntity.getOccupation()));
 		jobDto.setCompany(jobEntity.getCompany());
 		jobDto.setDescription(jobEntity.getDescription());
-		jobDto.setRequirements(jobEntity.getRequirements());
+		//jobDto.setRequirements(jobEntity.getRequirements());
 
 		return jobDto;
 	}

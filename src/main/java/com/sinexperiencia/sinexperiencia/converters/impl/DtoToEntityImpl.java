@@ -63,7 +63,7 @@ public class DtoToEntityImpl implements DtoToEntity {
 		jobEntity.setOccupation(jobDto.getOccupation().toString());
 		jobEntity.setDescription(jobDto.getDescription());
 		jobEntity.setCompany(jobDto.getCompany());
-		jobEntity.setRequirements(jobDto.getRequirements());
+		//jobEntity.setRequirements(jobDto.getRequirements());
 
 		return jobEntity;
 	}

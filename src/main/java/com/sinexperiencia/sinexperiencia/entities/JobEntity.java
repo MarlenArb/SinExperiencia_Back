@@ -29,8 +29,8 @@ public class JobEntity {
 	@Column(name = "DESCRIPCION")
 	private String description;
 	
-	@Column(name = "REQUISITOS")
-	private List<String> requirements;
+	//@Column(name = "REQUISITOS")
+	//private List<String> requirements;
 	
 	@Column(name = "EMPRESA")
 	private String company;
